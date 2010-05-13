@@ -1,0 +1,19 @@
+﻿	body{
+		font-family: Helvetica, Arial, Sans Serif;
+		font-size: 1.5em;
+		margin: 1em 3em
+	}
+	#header{
+		padding: 1em;
+		border-bottom: 1px solid black
+	}
+	#main img{
+		vertical-align: middle;
+		margin: 0 0.5em
+	}
+	#email{
+		margin-left: 2em
+	}
+	#box{
+		text-align: center
+	}	
