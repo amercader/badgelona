@@ -76,3 +76,8 @@
 .nivo-controlNav a.active {
 	font-weight:bold;
 }
+
+.nivo-controlNav a.active  img{
+	font-weight:bold;
+	border: 3px solid black
+}
