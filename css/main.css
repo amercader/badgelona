@@ -5,15 +5,105 @@
 	}
 	#header{
 		padding: 1em;
-		border-bottom: 1px solid black
+		border-bottom: 1px solid black;
+		
 	}
-	#main img{
+
+	
+	#top-menu {
+		width: 100%;
+		clear:both;
+		
+	}
+	
+	#top-menu  div{
+		padding: 0.25em 0.5em;
+		float:left;
+	}	
+
+	#top-menu  .active{
+		background-color: black;
+		color: white;
+	}
+	
+	#top-menu  div:hover{
+		background-color: black;
+		color: white;
+		cursor: pointer
+	}	
+	#top-menu-twitter{
+		float: right !important;
+		background: #ffffff url('../img/twitter_black.png') no-repeat left center;
+		padding-left: 1.5em !important;
+		font-size:  0.75em !important;
+	}
+	
+	#top-menu-twitter:hover{
+		background-image: url('../img/twitter_white.png');
+	}	
+	
+	#main{
+	clear:both;
+	padding-top: 1em;
+	}
+	
+
+	#main-left {
+		display:inline;
+		width: 40%;
+		float:left;
+		text-align: center
+		
+	}
+	
+	#main-left p{
+		margin-top: 0;
+		font-size:  0.75em !important;
+		text-align: left !important;
+	}
+	#main-right {
+		display:inline;
+		width: 60%;
+		float:left
+	}	
+	#slider {
+		margin-left: auto;
+		margin-right: auto;
+		background: url('../img/loading.gif') no-repeat 50% 50%;
+
+    -moz-box-shadow: 3px 3px 5px #888888;
+	}
+	
+	#slider img {
+		position:absolute;
+		top:0px;
+		left:0px;
+		display:none;
+	}
+	
+	#slider .nivo-controlNav {
+		top: 310px;
+		width: 100%;
+		position:absolute;
+
+	}
+	
+	#slider .nivo-controlNav img {
+		display:inline;
+		position:relative;
 		vertical-align: middle;
 		margin: 0 0.5em
 	}
-	#email{
-		margin-left: 2em
+	
+	#footer{
+		width: 100%;
+		clear:both;
+		float:left;
+		margin: 6em 0 2em 0;
+		padding: 0.5em;
+		font-size:  0.50em !important;
+		font-style:italic;
+		text-align: center;
+		border-top: 1px solid black
+		
 	}
-	#box{
-		text-align: center
-	}	
