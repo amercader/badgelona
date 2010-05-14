@@ -125,3 +125,12 @@
 		 
 	}
 	
+	#email{
+		width: 100%;
+		text-align: center;
+		font-size: 1.5em;
+	}
+	
+	#email img{
+		vertical-align: middle
+	}
