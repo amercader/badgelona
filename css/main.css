@@ -43,8 +43,9 @@
 	}	
 	
 	#main{
-	clear:both;
-	padding-top: 1em;
+		clear:both;
+		padding-top: 1em;
+		font-size:  0.75em !important;
 	}
 	
 
@@ -58,7 +59,7 @@
 	
 	#main-left p{
 		margin-top: 0;
-		font-size:  0.75em !important;
+
 		text-align: left !important;
 	}
 	#main-right {
@@ -107,3 +108,20 @@
 		border-top: 1px solid black
 		
 	}
+	
+	.gallery-item {
+		display:inline;
+		/*width: 33%;*/
+		float:left;
+		text-align: center;
+		padding: 0.5em;
+		margin: 0.5em;
+		-moz-box-shadow: 3px 3px 5px #888888;
+	}
+	
+	.gallery-item:hover{
+		 background-color: #FEFFAF;
+		 cursor: pointer;
+		 
+	}
+	
