@@ -3,12 +3,17 @@
 		font-size: 1.5em;
 		margin: 0 3em
 	}
+	
 	#header{
 		padding: 1em;
 		border-bottom: 1px solid black;
 		
 	}
-
+	
+	#lang{
+		display: inline;
+		float: right;
+	}
 	
 	#top-menu {
 		width: 100%;
