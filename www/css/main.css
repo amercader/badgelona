@@ -14,6 +14,17 @@
 		display: inline;
 		float: right;
 	}
+
+	#lang a{
+		color:black;
+		text-decoration: none;
+		padding: 0.5em
+	}
+
+	#lang a:hover{
+		color:white;
+		background-color: black;
+	}
 	
 	#top-menu {
 		width: 100%;
