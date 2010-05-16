@@ -84,9 +84,7 @@
 	#slider {
 		margin-left: auto;
 		margin-right: auto;
-		background: url('../img/loading.gif') no-repeat 50% 50%;
-
-    -moz-box-shadow: 3px 3px 5px #888888;
+		-moz-box-shadow: 3px 3px 5px #888888;
 	}
 	
 	#slider img {
