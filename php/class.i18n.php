@@ -1,6 +1,7 @@
 <?php
+	require_once("../php/class.common.php");
 	
-	class i18n {
+	class i18n extends common {
 		
 		private $requestParameterName = "lang";
 		
@@ -68,10 +69,7 @@
 		
 		
 		private function setLanguageCookie($lang){
-
-			$time = ($expires) ? time()+60*60*24*365 : false;
-
-			return setcookie($this->cookieName, $lang, $time, "/");		
+			return $this->setBrowserCookie($this->cookieName, $lang, 365, "/");
 		}
 		
 		// Thanks to http://www.thefutureoftheweb.com/blog/use-accept-language-header
@@ -102,17 +100,9 @@
 			
 		}
 		
-		private function getParameter($name, $default = false, $from = false) {
-			if ($from === false) $from = $_REQUEST;
-			reset($from);
-			while (list($key, $value) = each($from)) {
-				if (strcasecmp($key, $name) == 0) return $value;
-			}
-			return $default;
-		}
+	
 		
-		
-		}
+	}
 
 	
 ?>
