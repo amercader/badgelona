@@ -1,14 +1,17 @@
 <?php
-	//require_once ("i18n/strings.i18n.php");
 	
 	class i18n {
+		
+		private $requestParameterName = "lang";
+		
+		private $cookieName = "badgelonaLang";
+
+		public $defaultLanguage = "en";
 		
 		public $availableLanguages = array("en","ca","es");
 		
 		public $currentLanguage;
-		
-		public $defaultLanguage = "en";
-		
+
 		private $strings = array();
 		
 		public function __construct($lang = false){
@@ -18,21 +21,29 @@
 		public function setLanguage($lang = false){
 			
 			$setCookie = true;
-			
-			//Check request parameter
-			if (!$lang && isset($_GET["lang"])){
-				$lang = $_GET["lang"];
-			//Check cookie
-			} else if (!$lang && isset($_COOKIE["badgelonaLang"])){
-				$lang = $_COOKIE["badgelonaLang"];
-				$setCookie = false;
-			//Check user preferences
-			} else {
-				$userPreferences = $this->getUserPreferences();
-				if ($userPreferences) $lang = substr($userPreferences[0],0,2);
+
+			if (!$lang){
+				//Check request parameter
+				$requestLang = $this->getParameter($this->requestParameterName,false,$_GET);
+				if ($requestLang){
+					$lang = $requestLang;
+				
+				} else {
+				//Check cookie
+				$cookieLang = $this->getParameter($this->cookieName,false,$_COOKIE);
+					if ($cookieLang){
+						$lang = $cookieLang;
+						$setCookie = false;
+					//Check user preferences
+					} else {
+						$userPreferences = $this->getUserPreferences();
+						if ($userPreferences) $lang = substr($userPreferences[0],0,2);
+					
+					}
+				}
 			}
-		
-			//If not provided or not available, use default
+
+			//If not provided or not available, use default language
 			if (!$lang || !in_array($lang,$this->availableLanguages)) $lang = $this->defaultLanguage;
 			
 			//Load strings
@@ -58,23 +69,23 @@
 		
 		private function setLanguageCookie($lang){
 
-			//$time = ($expires) ? time()+60*60*24*$expires : false;
 			$time = ($expires) ? time()+60*60*24*365 : false;
 
-			return setcookie("badgelonaLang", $lang, $time, "/");		
+			return setcookie($this->cookieName, $lang, $time, "/");		
 		}
 		
 		// Thanks to http://www.thefutureoftheweb.com/blog/use-accept-language-header
-		public function getUserPreferences(){
+		public function getUserPreferences($getNumericValues = false){
 			$langs = array();
-
-			if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+			
+			$acceptLanguage = $this->getParameter("HTTP_ACCEPT_LANGUAGE",false,$_SERVER);
+			if ($acceptLanguage) {
 				// break up string into pieces (languages and q factors)
-				preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i', $_SERVER['HTTP_ACCEPT_LANGUAGE'], $lang_parse);
+				preg_match_all('/([a-z]{1,8}(-[a-z]{1,8})?)\s*(;\s*q\s*=\s*(1|0\.[0-9]+))?/i', $acceptLanguage, $langParse);
 
-				if (count($lang_parse[1])) {
+				if (count($langParse[1])) {
 					// create a list like "en" => 0.8
-					$langs = array_combine($lang_parse[1], $lang_parse[4]);
+					$langs = array_combine($langParse[1], $langParse[4]);
 					
 					// set default to 1 for any without q factor
 					foreach ($langs as $lang => $val) {
@@ -83,6 +94,7 @@
 
 					// sort list based on value	
 					arsort($langs, SORT_NUMERIC);
+					if (!$getNumericValues) $langs = array_keys($langs);
 				}
 			}
 
@@ -90,28 +102,17 @@
 			
 		}
 		
+		private function getParameter($name, $default = false, $from = false) {
+			if ($from === false) $from = $_REQUEST;
+			reset($from);
+			while (list($key, $value) = each($from)) {
+				if (strcasecmp($key, $name) == 0) return $value;
+			}
+			return $default;
 		}
-/*
-function getParameter($name, $default = false, $from = false) {
-    if ($from === false) $from = $_REQUEST;
-    reset($from);
-    while (list($key, $value) = each($from)) {
-        if (strcasecmp($key, $name) == 0) return $value;
-    }
-    return $default;
-}
-
-function setUserCookie($name,$value = false,$expires = 0,$path = "/",$domain = false,$secure = false) {
-    if (!$name) return false;
-
-    $time = ($expires) ? time()+60*60*24*$expires : false;
-
-    return setcookie($name, $value, $time, $path, $domain, $secure);
-}		
 		
 		
-	}
-	*/
-	
+		}
+
 	
 ?>
