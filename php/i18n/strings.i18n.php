@@ -34,13 +34,13 @@
 			"menu_gallery"=> "Galeria",
 			"menu_contact"=> "Comprar / Contacte",
 			"menu_twitter"=> "Segueix-nos al Twitter",
-			"home_welcome_1"=> "Benvinguts a badgelona, llar de las més increïbles xapes de feltre de la Xarxa!",
+			"home_welcome_1"=> "Benvinguts a badgelona, llar de les més increïbles xapes de feltre de la Xarxa!",
 			"home_welcome_2"=> "Fes un cop d'ull a la Galeria a tots els models disponibles.",
 			"home_welcome_3"=> "Totes les xapes estan fetes 100% a mà!",
 			"home_box"=> "Caixa plena de sorpreses!",
 			"contact_1"=> "Gràcies pel teu interès en els nostres productes!",
 			"contact_2"=> "badgelona.com està fent els seus primers pasos, i estem treballant en coses com les despeses d'enviament i la compra online.",
-			"contact_3"=> "Si vols fer una comanda o preguntar-nos alguna cosa, envians un email. Contactarem amb tu el més aviat possible amb tots els detalls referents a l'enviament i el pagament."			
+			"contact_3"=> "Si vols fer una comanda o preguntar-nos alguna cosa, envia'ns un email. Contactarem amb tu el més aviat possible amb tots els detalls referents a l'enviament i el pagament."			
 		)
 		
 	);
